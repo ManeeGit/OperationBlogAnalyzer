@@ -1,0 +1,37 @@
+streamlit
+pymongo
+# vaderSentiment
+# empath
+openai
+feedparser
+# Xlsxwriter
+openpyxl
+python-dotenv
+python-dotenv
+git+https://github.com/cjhutto/vaderSentiment.git
+git+https://github.com/Ejhfast/empath-client.git
+openai>=1.0.0
+
+# Web App
+streamlit
+matplotlib
+pandas
+openai
+
+# MongoDB
+pymongo
+dnspython
+
+# Sentiment Analysis
+# vaderSentiment
+# empath
+
+# RSS Parsing
+feedparser
+
+# Excel Export
+# xlsxwriter
+
+# For optional web scraping enhancements (if needed in future)
+requests
+beautifulsoup4

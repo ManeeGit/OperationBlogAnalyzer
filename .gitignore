@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.*
+
+# Virtual environments
+venv/
+env/
+*.egg-info/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Streamlit config and logs
+.streamlit/
+
+# Output files
+*.xlsx
+*.xls
+*.csv
+*.json
+
+# Log and PID files
+*.log
+*.pid
+
+# Node/PM2 (in case of local pm2 config)
+node_modules/
+.pm2/
+
+# Project configs (optional)
+.vscode/
+.idea/
+
+# Backup/swap files
+*.bak
+*.swp
+*.tmp
+*~
+
+# AWS deployment scripts (optional to ignore if local only)
+start_streamlit.sh

@@ -1,21 +1,38 @@
+import re
 import feedparser
 from config import BLOG_SOURCES
 
-def fetch_blogs(keyword, selected_sources=None):
+def fetch_blogs(keyword, selected_sources):
+    if not selected_sources:
+        selected_sources = list(BLOG_SOURCES.keys())
+
+    keywords = keyword.lower().split()
+    keyword_pattern = re.compile(r'\b(' + '|'.join(re.escape(k) for k in keywords) + r')\b', re.IGNORECASE)
+
     blogs = []
-    sources = selected_sources or BLOG_SOURCES.keys()
-    for name in sources:
-        feed_url = BLOG_SOURCES[name]
-        parsed = feedparser.parse(feed_url)
-        for entry in parsed.entries:
-            if keyword.lower() in entry.title.lower() or keyword.lower() in getattr(entry, "summary", "").lower():
+
+    for source in selected_sources:
+        feed_url = BLOG_SOURCES[source]
+        feed = feedparser.parse(feed_url)
+
+        for entry in feed.entries:
+            title = entry.get("title", "")
+            summary = entry.get("summary", "")
+            link = entry.get("link", "")
+            published = entry.get("published", "")
+
+            # Check if any of the keywords appear in the title or summary
+            if keyword_pattern.search(title) or keyword_pattern.search(summary):
                 blogs.append({
-                    "website": name,
-                    "title": entry.title,
-                    "link": entry.link,
-                    "content": entry.summary,
+                    "title": title,
+                    "content": summary,
+                    "link": link,
+                    "website": source,
                     "metadata": {
-                        "published": entry.get("published", "N/A")
+                        "published": published,
+                        "author": entry.get("author", "Unknown"),
+                        "likes": 0  # Optional placeholder
                     }
                 })
+
     return blogs

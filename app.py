@@ -24,9 +24,9 @@ if not st.session_state.authenticated:
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         with st.form("login_form"):
-            username = st.text_input("👤 Username")
-            password = st.text_input("🔑 Password", type="password")
-            login_btn = st.form_submit_button("🔓 Login")
+            username = st.text_input("Username")
+            password = st.text_input("Password", type="password")
+            login_btn = st.form_submit_button("Login")
 
             if login_btn:
                 with st.spinner("Authenticating..."):
@@ -53,7 +53,7 @@ if is_admin(st.session_state.username):
 tab1, tab2 = st.tabs(["📊 Analyzer", "📁 Analysis Results"])
 
 with tab1:
-    st.title("📝 Blog Analyzer Dashboard")
+    st.title("Blog Analyzer Dashboard")
     keyword = st.text_input("🔍 Enter a keyword for blog search")
 
     progress_bar = st.progress(0)

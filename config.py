@@ -9,66 +9,53 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MONGO_URI = os.getenv("MONGO_URI")
 
 BLOG_SOURCES = {
+    # 🌐 World & News
+    "BBC News": "http://feeds.bbci.co.uk/news/rss.xml",
+    "CNN Top Stories": "http://rss.cnn.com/rss/cnn_topstories.rss",
+    "NYTimes World": "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+
+    # 🧠 AI & Technology
     "TechCrunch": "https://techcrunch.com/feed/",
-    "Wired": "https://www.wired.com/feed/rss",
     "The Verge": "https://www.theverge.com/rss/index.xml",
+    "Wired": "https://www.wired.com/feed/rss",
     "Ars Technica": "http://feeds.arstechnica.com/arstechnica/index",
-    "Mashable": "https://mashable.com/feed",
-    "TNW": "https://thenextweb.com/feed/",
-    "Medium Technology": "https://medium.com/feed/tag/technology",
-    "Medium AI": "https://medium.com/feed/tag/artificial-intelligence",
-    "Medium Cybersecurity": "https://medium.com/feed/tag/cybersecurity",
-    "HackerNoon": "https://hackernoon.com/feed",
-    "Smashing Magazine": "https://www.smashingmagazine.com/feed/",
-    "Dev.to": "https://dev.to/feed",
-    "Digital Trends": "https://www.digitaltrends.com/feed/",
-    "ZDNet": "https://www.zdnet.com/news/rss.xml",
-    "CNET": "https://www.cnet.com/rss/news/",
-    "Engadget": "https://www.engadget.com/rss.xml",
-    "MIT Technology Review": "https://www.technologyreview.com/feed/",
-    "InfoWorld": "https://www.infoworld.com/index.rss",
-    "ReadWrite": "https://readwrite.com/feed/",
-    "TechRepublic": "https://www.techrepublic.com/rssfeeds/articles/",
-    "VentureBeat": "https://venturebeat.com/feed/",
-    "Gizmodo": "https://gizmodo.com/rss",
-    "Computerworld": "https://www.computerworld.com/index.rss",
-    "AI Trends": "https://www.aitrends.com/feed/",
-    "Analytics Vidhya": "https://www.analyticsvidhya.com/blog/feed/",
-    "Towards Data Science": "https://towardsdatascience.com/feed",
-    "KDnuggets": "https://www.kdnuggets.com/feed",
-    "Google AI Blog": "https://ai.googleblog.com/feeds/posts/default",
     "OpenAI Blog": "https://openai.com/blog/rss.xml",
+    "Google AI Blog": "https://ai.googleblog.com/feeds/posts/default",
     "Microsoft AI Blog": "https://blogs.microsoft.com/ai/feed/",
     "NVIDIA Blog": "https://blogs.nvidia.com/blog/feed/",
-    "RedHat Blog": "https://www.redhat.com/en/blog/feed",
-    "AWS News Blog": "https://aws.amazon.com/blogs/aws/feed/",
-    "Azure Blog": "https://azure.microsoft.com/en-us/blog/feed/",
-    "Cloudflare Blog": "https://blog.cloudflare.com/rss/",
-    "Docker Blog": "https://www.docker.com/blog/feed/",
-    "Kubernetes Blog": "https://kubernetes.io/feed.xml",
-    "Elastic Blog": "https://www.elastic.co/blog/feed",
-    "Python Software Foundation": "https://pyfound.blogspot.com/feeds/posts/default",
-    "Real Python": "https://realpython.com/atom.xml",
-    "JetBrains Blog": "https://blog.jetbrains.com/feed/",
-    "GitHub Blog": "https://github.blog/feed/",
-    "Stack Overflow Blog": "https://stackoverflow.blog/feed/",
-    "Cloud Native Computing Foundation": "https://www.cncf.io/blog/feed/",
-    "DevOps.com": "https://devops.com/feed/",
-    "Linux Today": "https://www.linuxtoday.com/backend/biglt.rss",
-    "Unixmen": "https://www.unixmen.com/feed/",
-    "Ubuntu Insights": "https://ubuntu.com/blog/feed",
-    "FOSSBytes": "https://fossbytes.com/feed/",
-    "Dark Reading": "https://www.darkreading.com/rss.xml",
-    "Threatpost": "https://threatpost.com/feed/",
+
+    # 🧬 Health & Wellness
+    "Medium Health": "https://medium.com/feed/tag/health",
+    "Medium Women": "https://medium.com/feed/tag/women",
+    "Medium Wellness": "https://medium.com/feed/tag/wellness",
+    "Medium Menopause": "https://medium.com/feed/tag/menopause",
+    "Medium Menopause Matters": "https://medium.com/feed/menopause-matters-empowering-womens-health",
+
+    # 🕰️ History & Society
+    "Medium History": "https://medium.com/feed/tag/history",
+    "Medium Politics": "https://medium.com/feed/tag/politics",
+    "Smithsonian Magazine": "https://www.smithsonianmag.com/rss/",
+    "History.com": "https://www.history.com/.rss",
+
+    # 🔐 Cybersecurity
     "The Hacker News": "https://feeds.feedburner.com/TheHackersNews",
+    "Dark Reading": "https://www.darkreading.com/rss.xml",
     "Bleeping Computer": "https://www.bleepingcomputer.com/feed/",
-    "Cybersecurity Insiders": "https://www.cybersecurity-insiders.com/feed/",
-    "CSO Online": "https://www.csoonline.com/index.rss",
-    "SecurityWeek": "https://feeds.feedburner.com/securityweek",
-    "McAfee Blog": "https://www.mcafee.com/blogs/feed/",
-    "Palo Alto Networks": "https://feeds.feedburner.com/paloaltonetworks",
-    "Cisco Blog": "https://blogs.cisco.com/security/feed",
-    "Kaspersky Blog": "https://securelist.com/feed",
-    "Malwarebytes Labs": "https://blog.malwarebytes.com/feed/",
-    "SANS Internet Storm Center": "https://isc.sans.edu/rssfeed.xml"
+
+    # 👥 Reddit Communities
+    "Reddit AI": "https://www.reddit.com/r/artificial/.rss",
+    "Reddit Health": "https://www.reddit.com/r/health/.rss",
+    "Reddit World News": "https://www.reddit.com/r/worldnews/.rss",
+    "Reddit History": "https://www.reddit.com/r/history/.rss",
+    "Reddit Technology": "https://www.reddit.com/r/technology/.rss",
+
+    # 📖 Medium Topics
+    "Medium AI": "https://medium.com/feed/tag/artificial-intelligence",
+    "Medium Technology": "https://medium.com/feed/tag/technology",
+    "Medium Science": "https://medium.com/feed/tag/science",
+    "Medium World": "https://medium.com/feed/tag/world",
+
+    # 🔬 Research & Science
+    "Science Daily": "https://www.sciencedaily.com/rss/all.xml",
+    "National Geographic": "https://www.nationalgeographic.com/content/natgeo/en_us/index.rss"
 }

@@ -28,7 +28,8 @@ dnspython
 
 # RSS Parsing
 feedparser
-
+googlesearch-python
+python-dotenv
 # Excel Export
 # xlsxwriter
 

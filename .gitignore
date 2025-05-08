@@ -37,6 +37,9 @@ Thumbs.db
 node_modules/
 .pm2/
 
+#.sh files
+.sh
+
 # Project configs (optional)
 .vscode/
 .idea/

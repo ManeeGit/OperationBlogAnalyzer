@@ -11,6 +11,7 @@ python-dotenv
 git+https://github.com/cjhutto/vaderSentiment.git
 git+https://github.com/Ejhfast/empath-client.git
 openai>=1.0.0
+pip iopenai scikit-learn
 
 # Web App
 streamlit
@@ -28,8 +29,7 @@ dnspython
 
 # RSS Parsing
 feedparser
-googlesearch-python
-python-dotenv
+
 # Excel Export
 # xlsxwriter
 
